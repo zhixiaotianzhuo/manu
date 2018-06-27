@@ -14,7 +14,7 @@ public class TimeAspectUtil {
     // 添加 @Component 注解，对象的生命周期将交由 Spring 接管 - 对象级别的 autowired 方可使用
     // 添加 @Aspect 注解，标记为切面
 
-    @Around("execution(* com.light.springboot.controller.FastJsonController..*(..))")
+    @Around("execution(* com.hetong.ad.mi.manu.controller.FastjsonController..*(..))")
     public Object method(ProceedingJoinPoint pjp) throws Throwable {
 
         System.out.println("=====Aspect处理=======");
