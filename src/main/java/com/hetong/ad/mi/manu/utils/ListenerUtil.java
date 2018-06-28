@@ -15,7 +15,7 @@ public class ListenerUtil implements ServletContextListener {
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
-
+        System.out.println("监听器销毁 ...");
     }
 
 }

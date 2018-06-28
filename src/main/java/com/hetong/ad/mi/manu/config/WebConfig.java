@@ -3,10 +3,7 @@ package com.hetong.ad.mi.manu.config;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
-import com.hetong.ad.mi.manu.utils.ListenerUtil;
-import com.hetong.ad.mi.manu.utils.ServletUtil;
-import com.hetong.ad.mi.manu.utils.TimeFilterUtil;
-import com.hetong.ad.mi.manu.utils.TimeInterceptorUtil;
+import com.hetong.ad.mi.manu.utils.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -85,12 +82,22 @@ public class WebConfig  extends WebMvcConfigurerAdapter {
         return new ServletListenerRegistrationBean<ListenerUtil>(new ListenerUtil());
     }
 
+    /**
+     * 项目启动时，配置拦截器
+     */
     @Autowired
     private TimeInterceptorUtil timeInterceptor;
-
-
+    @Autowired
+    private TestFirInterceptorUtil testFirInterceptorUtil;
+    @Autowired
+    private TestSecInterceptorUtil testSecInterceptorUtil;
+    @Autowired
+    private TestTriInterceptorUtil testTriInterceptorUtil;
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(timeInterceptor);
+        registry.addInterceptor(testFirInterceptorUtil);
+        registry.addInterceptor(testSecInterceptorUtil);
+        registry.addInterceptor(testTriInterceptorUtil);
     }
 }
