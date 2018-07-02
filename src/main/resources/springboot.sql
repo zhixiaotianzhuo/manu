@@ -1,0 +1,21 @@
+CREATE TABLE `user` (
+`id` INT ( 11 ) NOT NULL AUTO_INCREMENT,
+`username` VARCHAR ( 50 ) NOT NULL,
+`password` VARCHAR ( 64 ) NOT NULL,
+`birthday` DATE NOT NULL,
+PRIMARY KEY ( `id` )
+) COLLATE = 'utf8_general_ci' ENGINE = INNODB AUTO_INCREMENT = 3;
+
+CREATE TABLE `role` (
+`id` INT ( 11 ) NOT NULL AUTO_INCREMENT,
+`name` VARCHAR ( 10 ) NOT NULL,
+`descr` VARCHAR ( 100 ) NULL DEFAULT NULL,
+PRIMARY KEY ( `id` )
+) COLLATE = 'utf8_general_ci' ENGINE = INNODB;
+
+CREATE TABLE `department` (
+`id` INT ( 11 ) NOT NULL,
+`name` VARCHAR ( 10 ) NOT NULL,
+`descr` VARCHAR ( 50 ) NULL DEFAULT NULL,
+PRIMARY KEY ( `id` )
+) ENGINE = INNODB;

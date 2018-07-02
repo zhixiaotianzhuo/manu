@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 public class TestTriInterceptorUtil implements HandlerInterceptor {
     /**
      * 该方法将在请求处理之前进行调用。
+     *
      * @param request
      * @param response
      * @param handler
@@ -29,6 +30,7 @@ public class TestTriInterceptorUtil implements HandlerInterceptor {
 
     /**
      * Controller 方法调用之后执行，但是它会在DispatcherServlet 进行视图返回渲染之前被调用
+     *
      * @param request
      * @param response
      * @param handler
@@ -43,6 +45,7 @@ public class TestTriInterceptorUtil implements HandlerInterceptor {
 
     /**
      * 在DispatcherServlet 渲染了对应的视图之后执行。这个方法的主要作用是用于进行资源清理工作的。
+     *
      * @param request
      * @param response
      * @param handler

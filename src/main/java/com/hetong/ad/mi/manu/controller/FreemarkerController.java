@@ -13,7 +13,7 @@ import java.util.Map;
 public class FreemarkerController {
 
     @RequestMapping("hello_freemarker")
-    public String hello(Map<String,Object> map) {
+    public String hello(Map<String, Object> map) {
 
         map.put("msg", "Hello Freemarker");
         return "hello_freemarker";

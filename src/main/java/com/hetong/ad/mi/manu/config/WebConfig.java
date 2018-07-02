@@ -20,14 +20,13 @@ import java.util.List;
 
 /**
  * 配置管理类 WebConfig
- *
+ * <p>
  * Created by MANU on 2018/6/26.
  */
 @Configuration
-public class WebConfig  extends WebMvcConfigurerAdapter {
+public class WebConfig extends WebMvcConfigurerAdapter {
 
     /**
-     *
      * @return
      */
     // todo 不知它用来干啥的 ?
@@ -48,15 +47,17 @@ public class WebConfig  extends WebMvcConfigurerAdapter {
 
     /**
      * 项目启动时，配置 Servlet
+     *
      * @return
      */
     @Bean
     public ServletRegistrationBean servletRegistrationBean() {
-        return new ServletRegistrationBean(new ServletUtil(),"/servletTest");
+        return new ServletRegistrationBean(new ServletUtil(), "/servletTest");
     }
 
     /**
      * 项目启动时，配置过滤器
+     *
      * @return
      */
     @Bean
@@ -75,6 +76,7 @@ public class WebConfig  extends WebMvcConfigurerAdapter {
 
     /**
      * 项目启动时，配置监听器
+     *
      * @return
      */
     @Bean
@@ -93,6 +95,7 @@ public class WebConfig  extends WebMvcConfigurerAdapter {
     private TestSecInterceptorUtil testSecInterceptorUtil;
     @Autowired
     private TestTriInterceptorUtil testTriInterceptorUtil;
+
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(timeInterceptor);

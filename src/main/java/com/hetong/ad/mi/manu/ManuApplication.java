@@ -17,12 +17,12 @@ import java.util.EnumSet;
 @SpringBootApplication
 public class ManuApplication extends SpringBootServletInitializer {
 
-	/**
-	 * 针对自定义 Servlet、Filter 和 Listener 的配置 - 与 WebConfig 之中的配置方式效果一致
-	 * @param servletContext
-	 * @throws ServletException
-	 */
-	/*@Override
+    /**
+     * 针对自定义 Servlet、Filter 和 Listener 的配置 - 与 WebConfig 之中的配置方式效果一致
+     * @param servletContext
+     * @throws ServletException
+     */
+    /*@Override
 	public void onStartup(ServletContext servletContext) throws ServletException {
 		// 配置 Servlet
 		servletContext.addServlet("servletUtil",new ServletUtil())
@@ -34,20 +34,21 @@ public class ManuApplication extends SpringBootServletInitializer {
 		servletContext.addListener(new ListenerUtil());
 	}*/
 
-	/**
-	 * 打包成部署的 war 包
-	 * @param application
-	 * @return
-	 */
-	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+    /**
+     * 打包成部署的 war 包
+     *
+     * @param application
+     * @return
+     */
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		/* SpringbootApplication 类继承 SpringBootServletInitializer 并重写 configure 方法 */
-		return application.sources(ManuApplication.class);
-	}
+        return application.sources(ManuApplication.class);
+    }
 
-	public static void main(String[] args) {
-		SpringApplication app = new SpringApplication(ManuApplication.class);
-		// app.setBannerMode(Banner.Mode.OFF);
-		app.run(args);
-	}
+    public static void main(String[] args) {
+        SpringApplication app = new SpringApplication(ManuApplication.class);
+        // app.setBannerMode(Banner.Mode.OFF);
+        app.run(args);
+    }
 }

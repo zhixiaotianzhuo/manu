@@ -2,12 +2,15 @@ package com.hetong.ad.mi.manu.bean;
 
 import com.alibaba.fastjson.annotation.JSONField;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by MANU on 2018/6/26.
  */
-public class User {
+public class User implements Serializable {
+
+    private static final long serialVersionUID = -6249397911566315813L;
 
     private Integer id;
 
@@ -15,8 +18,12 @@ public class User {
 
     private String password;
 
-    @JSONField(format="yyyy-MM-dd")
+    @JSONField(format = "yyyy-MM-dd")
     private Date birthday;
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
 
     public Integer getId() {
         return id;

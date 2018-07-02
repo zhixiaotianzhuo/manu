@@ -13,7 +13,7 @@ import java.util.Map;
 public class ThymeleafController {
 
     @RequestMapping("hello_thymeleaf")
-    public String hello(Map<String,Object> map) {
+    public String hello(Map<String, Object> map) {
         map.put("msg", "Hello Thymeleaf");
         return "hello_thymeleaf";
     }

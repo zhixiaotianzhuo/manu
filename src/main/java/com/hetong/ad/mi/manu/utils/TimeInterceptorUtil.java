@@ -24,6 +24,7 @@ public class TimeInterceptorUtil implements HandlerInterceptor {
 
     /**
      * 该方法将在请求处理之前进行调用。
+     *
      * @param request
      * @param response
      * @param handler
@@ -34,8 +35,8 @@ public class TimeInterceptorUtil implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
         System.out.println("========preHandle=========");
-        System.out.println(((HandlerMethod)handler).getBean().getClass().getName());
-        System.out.println(((HandlerMethod)handler).getMethod().getName());
+        System.out.println(((HandlerMethod) handler).getBean().getClass().getName());
+        System.out.println(((HandlerMethod) handler).getMethod().getName());
 
         request.setAttribute("startTime", System.currentTimeMillis());
 
@@ -44,6 +45,7 @@ public class TimeInterceptorUtil implements HandlerInterceptor {
 
     /**
      * Controller 方法调用之后执行，但是它会在DispatcherServlet 进行视图返回渲染之前被调用
+     *
      * @param request
      * @param response
      * @param handler
@@ -56,11 +58,12 @@ public class TimeInterceptorUtil implements HandlerInterceptor {
 
         System.out.println("========postHandle=========");
         Long start = (Long) request.getAttribute("startTime");
-        System.out.println("耗时:"+(System.currentTimeMillis() - start));
+        System.out.println("耗时:" + (System.currentTimeMillis() - start));
     }
 
     /**
      * 在DispatcherServlet 渲染了对应的视图之后执行。这个方法的主要作用是用于进行资源清理工作的。
+     *
      * @param request
      * @param response
      * @param handler
@@ -73,7 +76,7 @@ public class TimeInterceptorUtil implements HandlerInterceptor {
 
         System.out.println("========afterCompletion=========");
         Long start = (Long) request.getAttribute("startTime");
-        System.out.println("耗时:"+(System.currentTimeMillis() - start));
+        System.out.println("耗时:" + (System.currentTimeMillis() - start));
 
         System.out.println(exception);
     }
