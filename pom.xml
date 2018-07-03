@@ -60,7 +60,6 @@
             <scope>test</scope>
         </dependency>
 
-
         <!-- 热部署 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -130,6 +129,36 @@
             <artifactId>druid-spring-boot-starter</artifactId>
             <version>1.1.8</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-cache</artifactId>
+        </dependency>
+
+        <!-- EhCache 缓存 -->
+        <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache</artifactId>
+        </dependency>
+
+        <!--Redis 缓存-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
+        <!--Redis 缓存,使用其 API 自己实现缓存功能、消息队列或分布式锁之类的需求-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
+        <!--Spring Data MongoDB 提供了 MongoTemplate 模板 和 Repository 让开发者进行数据访问-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
+        </dependency>
+
 
     </dependencies>
 
