@@ -105,7 +105,6 @@
             <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
 
-
         <!-- springboot,jpa 整合包-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
