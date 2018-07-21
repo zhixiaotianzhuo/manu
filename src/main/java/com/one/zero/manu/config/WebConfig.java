@@ -13,6 +13,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import java.util.ArrayList;
@@ -42,7 +44,6 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         HttpMessageConverter<?> converter = fastJsonHttpMessageConverter;
 
         return new HttpMessageConverters(converter);
-
     }
 
     /**
@@ -84,23 +85,36 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         return new ServletListenerRegistrationBean<ListenerUtil>(new ListenerUtil());
     }
 
-    /**
-     * 项目启动时，配置拦截器
-     */
-    @Autowired
-    private TimeInterceptorUtil timeInterceptor;
-    @Autowired
-    private TestFirInterceptorUtil testFirInterceptorUtil;
-    @Autowired
-    private TestSecInterceptorUtil testSecInterceptorUtil;
-    @Autowired
-    private TestTriInterceptorUtil testTriInterceptorUtil;
+//    /**
+//     * 项目启动时，配置拦截器
+//     */
+//    @Autowired
+//    private TimeInterceptorUtil timeInterceptor;
+//    @Autowired
+//    private TestFirInterceptorUtil testFirInterceptorUtil;
+//    @Autowired
+//    private TestSecInterceptorUtil testSecInterceptorUtil;
+//    @Autowired
+//    private TestTriInterceptorUtil testTriInterceptorUtil;
+//
+//    @Override
+//    public void addInterceptors(InterceptorRegistry registry) {
+//        registry.addInterceptor(timeInterceptor);
+//        registry.addInterceptor(testFirInterceptorUtil);
+//        registry.addInterceptor(testSecInterceptorUtil);
+//        registry.addInterceptor(testTriInterceptorUtil);
+//    }
 
+
+    // controller 路径 ？
     @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(timeInterceptor);
-        registry.addInterceptor(testFirInterceptorUtil);
-        registry.addInterceptor(testSecInterceptorUtil);
-        registry.addInterceptor(testTriInterceptorUtil);
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/xx").setViewName("/xx");
+    }
+
+    // static 附件
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
     }
 }
